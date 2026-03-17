@@ -14,7 +14,7 @@ interface InvoiceTableProps {
 export function InvoiceTable({ invoices, onRemind, onMarkAsPaid }: InvoiceTableProps) {
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
-      <table className="w-full min-w-[860px] text-left text-sm">
+      <table className="w-full min-w-[760px] text-left text-sm md:min-w-[860px]">
         <thead className="bg-violet-50 text-xs uppercase tracking-wide text-gray-500">
           <tr>
             <th className="px-4 py-3">Invoice #</th>
@@ -37,8 +37,8 @@ export function InvoiceTable({ invoices, onRemind, onMarkAsPaid }: InvoiceTableP
               <td className="px-4 py-3">
                 <StatusDot label={invoice.status} />
               </td>
-              <td className="px-4 py-3">
-                <div className="flex gap-2">
+              <td className="px-4 py-3 pr-6">
+                <div className="flex flex-wrap gap-2">
                   <Button size="sm" variant="ghost" type="button">
                     View
                   </Button>

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Bell, Search } from "lucide-react";
+import { Bell, Menu, X, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useToast } from "@/components/providers/toast-provider";
 
@@ -21,7 +21,12 @@ const titles: Record<string, string> = {
   "/profile": "Venkataswaran Profile",
 };
 
-export function Topbar() {
+type TopbarProps = {
+  onMenuToggle?: () => void;
+  isMobileMenuOpen?: boolean;
+};
+
+export function Topbar({ onMenuToggle, isMobileMenuOpen = false }: TopbarProps) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -57,12 +62,21 @@ export function Topbar() {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white/95 px-4 backdrop-blur md:px-6">
-      <div>
-        <p className="text-xs uppercase tracking-wider text-gray-400">Vencuts / {title}</p>
-        <h1 className="text-xl font-semibold text-gray-900">{title}</h1>
+    <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-gray-200 bg-white/95 px-3 backdrop-blur md:px-6">
+      <div className="flex min-w-0 items-center gap-2 md:gap-3">
+        <button
+          className="rounded-lg border border-gray-200 bg-white p-2 text-gray-700 md:hidden"
+          onClick={onMenuToggle}
+          type="button"
+        >
+          {isMobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </button>
+        <div className="min-w-0">
+          <p className="truncate text-[11px] uppercase tracking-wider text-gray-400 md:text-xs">Vencuts / {title}</p>
+          <h1 className="truncate text-base font-semibold text-gray-900 md:text-xl">{title}</h1>
+        </div>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3">
         <div className="hidden items-center gap-2 rounded-full bg-gray-100 px-3 py-2 md:flex">
           <Search className="h-4 w-4 text-gray-400" />
           <input className="w-48 bg-transparent text-sm outline-none" placeholder="Search" />
@@ -86,7 +100,7 @@ export function Topbar() {
           </button>
 
           {open ? (
-            <div className="absolute right-0 mt-2 w-[340px] rounded-xl border border-gray-200 bg-white p-3 shadow-xl">
+            <div className="absolute right-0 z-30 mt-2 w-[min(92vw,340px)] rounded-xl border border-gray-200 bg-white p-3 shadow-xl">
               <div className="mb-2 flex items-center justify-between px-1">
                 <p className="text-sm font-semibold text-gray-900">Activity Notifications</p>
                 <span className="text-xs text-gray-400">Recent actions</span>

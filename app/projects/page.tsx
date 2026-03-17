@@ -12,7 +12,7 @@ export default function ProjectsPage() {
 
   return (
     <div>
-      <div className="mb-5 flex items-center justify-between">
+      <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
         <PageHeader title="Projects" actionLabel="New Project" />
         <Button variant="outline" size="sm" onClick={() => setView((prev) => (prev === "kanban" ? "table" : "kanban"))}>
           {view === "kanban" ? "Table View" : "Kanban View"}

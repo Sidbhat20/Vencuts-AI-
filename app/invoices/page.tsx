@@ -25,7 +25,7 @@ export default function InvoicesPage() {
   return (
     <div>
       <PageHeader title="Invoices" actionLabel="Create Invoice" onAction={() => setOpen(true)} />
-      <div className="mb-4 grid gap-3 md:grid-cols-4">
+      <div className="mb-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <Card className="bg-rose-50 border-rose-100"><p className="text-xs text-rose-600">Total Outstanding</p><p className="text-xl font-semibold">{formatCurrency(totals.outstanding)}</p></Card>
         <Card className="bg-emerald-50 border-emerald-100"><p className="text-xs text-emerald-600">Paid This Month</p><p className="text-xl font-semibold">{formatCurrency(totals.paid)}</p></Card>
         <Card className="bg-rose-50 border-rose-100"><p className="text-xs text-rose-600">Overdue</p><p className="text-xl font-semibold">{totals.overdueCount} invoices</p></Card>

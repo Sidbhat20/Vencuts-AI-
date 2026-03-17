@@ -7,7 +7,7 @@ import { StatusDot } from "@/components/ui/status-dot";
 export function LeadsTable({ leads, onSendEmail }: { leads: Lead[]; onSendEmail: (lead: Lead) => void }) {
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
-      <table className="w-full min-w-[780px] text-left text-sm">
+      <table className="w-full min-w-[700px] text-left text-sm md:min-w-[780px]">
         <thead className="bg-violet-50 text-xs uppercase tracking-wide text-gray-500">
           <tr>
             <th className="px-4 py-3">Name</th>
@@ -32,7 +32,7 @@ export function LeadsTable({ leads, onSendEmail }: { leads: Lead[]; onSendEmail:
               <td className="px-4 py-3">
                 <StatusDot label={lead.score} />
               </td>
-              <td className="px-4 py-3">
+              <td className="px-4 py-3 pr-6">
                 <Button size="sm" variant="outline" onClick={() => onSendEmail(lead)}>
                   Send Email
                 </Button>

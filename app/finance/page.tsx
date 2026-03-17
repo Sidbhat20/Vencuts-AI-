@@ -12,7 +12,7 @@ export default function FinancePage() {
   return (
     <div>
       <PageHeader title="Financial Overview" />
-      <div className="mb-4 grid gap-3 md:grid-cols-4">
+      <div className="mb-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <Card><p className="text-xs text-gray-500">Monthly Revenue</p><p className="text-xl font-semibold">{formatCurrency(latest.revenue)}</p></Card>
         <Card><p className="text-xs text-gray-500">Monthly Expenses</p><p className="text-xl font-semibold">{formatCurrency(latest.expenses)}</p></Card>
         <Card><p className="text-xs text-gray-500">Net Profit</p><p className="text-xl font-semibold">{formatCurrency(latest.profit)}</p></Card>

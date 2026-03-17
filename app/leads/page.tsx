@@ -29,7 +29,7 @@ export default function LeadsPage() {
   return (
     <div>
       <PageHeader title="Lead Generation" actionLabel="New Campaign" onAction={() => setCampaignOpen(true)} />
-      <div className="mb-4 grid gap-3 md:grid-cols-5">
+      <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {dynamicStats.map((stat) => (
           <Card key={stat.label} className="p-4">
             <p className="text-xs uppercase tracking-wide text-gray-500">{stat.label}</p>
